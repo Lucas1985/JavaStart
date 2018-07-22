@@ -1,6 +1,7 @@
 package utils;
 
 import data.Book;
+import data.Magazine;
 
 import java.util.Scanner;
 
@@ -18,28 +19,44 @@ public class DataReader {
         return number;
     }
 
+    public void close() {
+        sc.close();
+    }
+
     public Book readAndCreateBook() {
         System.out.println("Podaj tytuł książki: ");
-        String tytul = sc.nextLine();
+        String title = sc.nextLine();
         System.out.println("Podaj autora książki: ");
-        String autor = sc.nextLine();
+        String author = sc.nextLine();
         System.out.println("Podaj rok wydania książki: ");
-        int rokWydania = sc.nextInt();
+        int year = sc.nextInt();
         sc.nextLine();
         System.out.println("Podaj ilość stron książki: ");
-        int iloscStron = sc.nextInt();
+        int pages = sc.nextInt();
         System.out.println("Podaj numer ISBN książki: ");
         int ISBN = sc.nextInt();
         sc.nextLine();
         System.out.println("Podaj nazwę wydawnictwa: ");
-        String wydawnictwo = sc.nextLine();
+        String publisher = sc.nextLine();
         System.out.println("Podaj cenę książki: ");
-        double cena = sc.nextDouble();
 
-        return new Book(tytul, autor, wydawnictwo, ISBN, rokWydania, iloscStron, cena);
+        return new Book(title, author, year, ISBN, publisher, pages);
     }
 
-    public void close() {
-        sc.close();
+    public Magazine readAndCreateMagazine() {
+        System.out.println("Podaj tytuł magazynu: ");
+        String title = sc.nextLine();
+        System.out.println("Podaj rok wydania magazynu: ");
+        int year = sc.nextInt();
+        System.out.println("Podaj miesiąc wydania magazynu: ");
+        int month = sc.nextInt();
+        System.out.println("Podaj dzień wydania magazynu: ");
+        int day = sc.nextInt();
+        System.out.println("Podaj nazwę wydawnictwa: ");
+        String publisher = sc.nextLine();
+        System.out.println("Podaj język magazynu: ");
+        String language = sc.nextLine();
+
+        return new Magazine(title, publisher, language, year, month, day);
     }
 }

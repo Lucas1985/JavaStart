@@ -1,55 +1,17 @@
 package data;
 
-import java.util.Scanner;
+public class Book extends Publication {
 
-public class Book {
-
-    private String tytul;
-
-    private String autor;
-    private String wydawnictwo;
+    private String author;
     private int ISBN;
-    private int rokWydania;
-    private int iloscStron;
-    private double cena;
+    private int pages;
 
-    public Book(String tytul, String autor, String wydawnictwo, int ISBN, int rokWydania, int iloscStron, double cena) {
-        this.tytul = tytul;
-        this.autor = autor;
-        this.wydawnictwo = wydawnictwo;
-        this.ISBN = ISBN;
-        this.rokWydania = rokWydania;
-        this.iloscStron = iloscStron;
-        this.cena = cena;
+    public String getAuthor() {
+        return author;
     }
 
-    public Book(Book book) {
-        this(book.getTytul(), book.getAutor(), book.getWydawnictwo(), book
-            .getISBN(), book.getRokWydania(), book.getIloscStron(), book.getCena());
-    }
-
-    public String getTytul() {
-        return tytul;
-    }
-
-    public void setTytul(String tytul) {
-        this.tytul = tytul;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
-    public String getWydawnictwo() {
-        return wydawnictwo;
-    }
-
-    public void setWydawnictwo(String wydawnictwo) {
-        this.wydawnictwo = wydawnictwo;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public int getISBN() {
@@ -60,33 +22,28 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    public int getRokWydania() {
-        return rokWydania;
+    public int getPages() {
+        return pages;
     }
 
-    public void setRokWydania(int rokWydania) {
-        this.rokWydania = rokWydania;
+    public void setPages(int pages)
+    {
+        this.pages = pages;
     }
 
-    public int getIloscStron() {
-        return iloscStron;
+    public Book(String title, String author, int year, int pages, String publisher, int ISBN) {
+        this.setTitle(title);
+        this.setAuthor(author);
+        this.setYear(year);
+        this.setPages(pages);
+        this.setPublisher(publisher);
+        this.setISBN(ISBN);
     }
 
-    public void setIloscStron(int iloscStron) {
-        this.iloscStron = iloscStron;
-    }
-
-    public double getCena() {
-        return cena;
-    }
-
-    public void setCena(double cena) {
-        this.cena = cena;
-    }
 
     public void printBookInfo() {
-        String info = "Tytuł: " + getTytul() + " Autor: " + getAutor() + " Wydawnictwo: " + getWydawnictwo() +
-                " ISBN: " + getISBN() + " Rok wydania: " + getRokWydania() + " Ilość stron: " + getIloscStron() + " Cena: " + getCena();
+        String info = "Tytuł: " + getTitle() + " Autor: " + getAuthor() + " Wydawnictwo: " + getPublisher() +
+                " ISBN: " + getISBN() + " Rok wydania: " + getYear() + " Ilość stron: " + getPages() + " Cena: ";
         System.out.println(info);
     }
 }
